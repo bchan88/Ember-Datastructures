@@ -17,9 +17,8 @@ export default Ember.Route.extend({
       var _this = this;
       var model = this.modelFor('inventory.edit');
 
-      model.destroyRecord().then(function(){
-        _this.transitionTo('inventory');
-      });
+      model.rollback();
+      _this.transitionTo('inventory');
 
       return false;
     }

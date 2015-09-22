@@ -7,9 +7,12 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('inventory', function() {
-    this.route('edit');
+    this.route('edit', {
+      path: ':node_id/edit'
+    });
     this.route('new');
   });
+
   this.route('graphs');
 });
 
