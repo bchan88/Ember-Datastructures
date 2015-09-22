@@ -1,3 +1,15 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <span class="navbar-brand">Brian's Demo</span>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li>{{link-to "Inventory" "inventory"}}</li>
+        <li>{{link-to "Graphs" "graphs"}}</li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 {{outlet}}
