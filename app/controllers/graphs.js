@@ -2,8 +2,22 @@ import Ember from 'ember';
 
 
 export default Ember.Controller.extend({
-  data: Ember.computed('model', function(){
-    return JSON.parse(JSON.stringify(this.get('model').toArray()));
+  data: Ember.computed('model.@each', 'model.@each.value', 'model.@each.name', function(){
+    var model = JSON.parse(JSON.stringify(this.get('model').toArray()));
+
+    var arr = [];
+
+    for(var i = 0; i < model.length; i++){
+      arr.push({
+        children: [i + 1],
+        level: 0,
+        levelIdx: i,
+        name: model[i].name,
+        value: model[i].value
+      });
+    }
+
+    return [arr];
   }),
 
   type: "unsorted",
