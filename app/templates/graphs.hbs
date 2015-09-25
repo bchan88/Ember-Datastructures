@@ -9,11 +9,13 @@
 
       <div class="panel-body">
         <div class="btn-group">
-          {{link-to "Unsorted" "graphs.index" classNameBindings="indexClass"}}
-          {{link-to "Sorted" "graphs.sorted" classNameBindings="sortedClass"}}
-          {{link-to "Binary Tree" "graphs.bst" classNameBindings="bstClass"}}
-          {{link-to "Binary Heap" "graphs.heap" classNameBindings="heapClass"}}
+          <button type="button" class="{{unsortedClass}}" {{action "setGraph" "unsorted"}}>Unsorted</button>
+          <button type="button" class="{{sortedClass}}" {{action "setGraph" "sorted"}}>Sorted</button>
+          <button type="button" class="{{bstClass}}" {{action "setGraph" "bst"}}>Binary Tree</button>
+          <button type="button" class="{{heapClass}}" {{action "setGraph" "heap"}}>Binary Heap</button>
         </div>
+
+        {{node-graph type=type data=data}}
         {{outlet}}
       </div>
     </div>
