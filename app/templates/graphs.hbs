@@ -1,1 +1,21 @@
-{{outlet}}
+<div class="container">
+  <div class="summary-panel">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Graphs
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        <div class="btn-group">
+          {{link-to "Unsorted" "graphs.index" classNameBindings="indexClass"}}
+          {{link-to "Sorted" "graphs.sorted" classNameBindings="sortedClass"}}
+          {{link-to "Binary Tree" "graphs.bst" classNameBindings="bstClass"}}
+          {{link-to "Binary Heap" "graphs.heap" classNameBindings="heapClass"}}
+        </div>
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>

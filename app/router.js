@@ -13,7 +13,11 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('graphs');
+  this.route('graphs', function() {
+    this.route('bst');
+    this.route('heap');
+    this.route('sorted');
+  });
 });
 
 export default Router;
