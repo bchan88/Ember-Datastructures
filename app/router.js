@@ -13,7 +13,9 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('graphs');
+  this.route('graphs', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

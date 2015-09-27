@@ -3,7 +3,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          Graphs
+          <div class="pull-left">Graphs</div>
+          <div class="pull-right">
+            {{link-to "" "graphs.new" class="glyphicon glyphicon-plus"}}
+          </div>
+          <div class="clearfix"></div>
         </h3>
       </div>
 
@@ -15,7 +19,7 @@
           <button type="button" class="{{heapClass}}" {{action "setGraph" "heap"}}>Binary Heap</button>
         </div>
         <br><br>
-        {{node-graph type=type data=data}}
+        {{node-graph type=type data=data update=updateToggle}}
         {{outlet}}
       </div>
     </div>
