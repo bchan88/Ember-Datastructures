@@ -11,7 +11,10 @@ export default Ember.Route.extend({
       var model = this.modelFor('graphs.new');
 
       model.save().then(function(){
+        var __this = _this;
         _this.modelFor('graphs').update();
+        _this.controllerFor('graphs').send('updateBstData');
+        _this.controllerFor('graphs').send('updateHeapData');
         _this.controllerFor('graphs').toggleProperty('updateToggle');
         _this.transitionTo('graphs');
       });

@@ -24,7 +24,7 @@ import d3 from 'd3';
 export default Ember.Component.extend({
   classNames: ['node-graph'],
 
-  width: 900,
+  width: 1000,
   height: 500,
 
   didInsertElement: function(){
@@ -35,7 +35,7 @@ export default Ember.Component.extend({
     }
   },
 
-  updateGraph: Ember.observer('update', function(){
+  updateGraph: Ember.observer('update','data', function(){
     if(this.get('type') === "sorted" || this.get('type') === "unsorted"){
       this.send('showArray');
     }else if(this.get('type') === "bst" || this.get('type') === "heap"){
