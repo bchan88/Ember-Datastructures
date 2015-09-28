@@ -19,7 +19,15 @@
           <button type="button" class="{{heapClass}}" {{action "setGraph" "heap"}}>Binary Heap</button>
         </div>
         <br><br>
-        {{node-graph type=type data=data update=updateToggle}}
+        {{#if unsorted}}
+          {{node-graph type="unsorted" data=unsortedData update=updateToggle}}
+        {{else if sorted}}
+          {{node-graph type="sorted" data=sortedData update=updateToggle}}
+        {{else if bst}}
+          {{node-graph type="bst" data=bstData update=updateToggle}}
+        {{else if heap}}
+          {{node-graph type="heap" data=heapData update=updateToggle}}
+        {{/if}}
         {{outlet}}
       </div>
     </div>

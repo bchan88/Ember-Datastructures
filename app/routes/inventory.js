@@ -7,7 +7,13 @@ export default Ember.Route.extend({
 
   actions: {
     delete: function(model){
-      model.destroyRecord();
+      var _this = this;
+
+      model.destroyRecord().then(function(){
+        _this.controllerFor('graphs').send('resetBstData');
+        _this.controllerFor('graphs').send('resetHeapData');
+      });
+      
       return false;
     },
 
