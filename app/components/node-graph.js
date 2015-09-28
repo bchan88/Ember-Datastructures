@@ -27,6 +27,9 @@ export default Ember.Component.extend({
   width: 1000,
   height: 500,
 
+  /*
+    show either a one dimesional array or tree structure depending on type
+  */
   didInsertElement: function(){
     if(this.get('type') === "sorted" || this.get('type') === "unsorted"){
       this.send('showArray');
@@ -35,7 +38,10 @@ export default Ember.Component.extend({
     }
   },
 
-  updateGraph: Ember.observer('update','data', function(){
+  /*
+    Observes when update is fired, and the graph is rerendered with new data
+  */
+  updateGraph: Ember.observer('update', function(){
     if(this.get('type') === "sorted" || this.get('type') === "unsorted"){
       this.send('showArray');
     }else if(this.get('type') === "bst" || this.get('type') === "heap"){
@@ -44,6 +50,9 @@ export default Ember.Component.extend({
   }),
 
   actions: {
+    /*
+      Displays one dimensional array
+    */
     showArray: function(){
       Ember.$('.node-graph svg').remove(); //clear old graph
 
@@ -97,6 +106,9 @@ export default Ember.Component.extend({
           });
     },
 
+    /*
+      Displays a tree structure with arrows
+    */
     showTree: function(){
       Ember.$('.node-graph svg').remove(); //clear old graph
 
