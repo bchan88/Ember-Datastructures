@@ -1,1 +1,37 @@
-{{outlet}}
+<div class="container">
+  <div class="summary-panel">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <div class="pull-left">Graphs</div>
+          <div class="pull-right">
+            {{link-to "" "graphs.new" class="glyphicon glyphicon-plus"}}
+          </div>
+          <div class="clearfix"></div>
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        <div class="btn-group">
+          <button type="button" class="{{unsortedClass}}" {{action "setGraph" "unsorted"}}>Unsorted</button>
+          <button type="button" class="{{sortedClass}}" {{action "setGraph" "sorted"}}>Sorted</button>
+          <button type="button" class="{{bstClass}}" {{action "setGraph" "bst"}}>Binary Tree</button>
+          <button type="button" class="{{heapClass}}" {{action "setGraph" "heap"}}>Binary Heap</button>
+        </div>
+        <br><br>
+
+        {{#if unsorted}}
+          {{node-graph type="unsorted" data=unsortedData update=updateToggle}}
+        {{else if sorted}}
+          {{node-graph type="sorted" data=sortedData update=updateToggle}}
+        {{else if bst}}
+          {{node-graph type="bst" data=bstData update=updateToggle}}
+        {{else if heap}}
+          {{node-graph type="heap" data=heapData update=updateToggle}}
+        {{/if}}
+        
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>

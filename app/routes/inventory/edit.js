@@ -7,6 +7,8 @@ export default Ember.Route.extend({
       var model = this.modelFor('inventory.edit');
 
       model.save().then(function(){
+        _this.controllerFor('graphs').send('resetBstData');
+        _this.controllerFor('graphs').send('resetHeapData');
         _this.transitionTo('inventory');
       });
 
